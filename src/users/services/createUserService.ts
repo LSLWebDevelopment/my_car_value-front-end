@@ -16,7 +16,6 @@ export async function createUserService({
   const response = await axios.post<ICreateUserResponse>(`${url}/auth/signup`, {
     email,
     password,
-    headers: { "Content-Typ": "application/json" },
   });
   return response.data;
 }
