@@ -11,6 +11,10 @@ interface CreateUserProviderProps {
   children: ReactNode;
 }
 
+interface CreateUserResponse {
+  message: string;
+}
+
 export const CreateUserContext = createContext<ICreateUserContext | null>(null);
 
 export function CreateUserProvider({ children }: CreateUserProviderProps) {
@@ -18,9 +22,10 @@ export function CreateUserProvider({ children }: CreateUserProviderProps) {
     try {
       const response = await createUserService(data);
       console.log(response);
+      alert("User successfully created!");
     } catch (error) {
-      const err = error as AxiosError;
-      console.log(err);
+      const { response } = error as AxiosError<CreateUserResponse>;
+      alert(response?.data?.message);
     }
   };
 

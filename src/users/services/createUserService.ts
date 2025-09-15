@@ -6,7 +6,6 @@ const url = import.meta.env.VITE_API_URL;
 export interface ICreateUserResponse {
   id: number;
   email: string;
-  password: string;
 }
 
 export async function createUserService({
