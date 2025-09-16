@@ -1,7 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { useCreateUserContext } from "../hooks/useCreateUserContext";
-import { Header } from "./Header";
 import type { ICreateUser } from "../entities/user.entity";
+import { useCreateUserContext } from "../hooks/useCreateUserContext";
+import { SubTitle } from "./SubTitle";
+import { Link } from "react-router-dom";
 
 export function CreateUserForm() {
   const { createUser } = useCreateUserContext();
@@ -47,7 +48,7 @@ export function CreateUserForm() {
 
   return (
     <div className="bg-amber-50 py-5 w-130 m-auto rounded-3xl">
-      <Header>Sign Up</Header>
+      <SubTitle>Sign Up</SubTitle>
       <form onSubmit={handleSubmit} className="mt-10 px-5">
         <div>
           {/* <label htmlFor="email">Email</label> */}
@@ -80,10 +81,10 @@ export function CreateUserForm() {
             onChange={handleConfirmPasswordChange}
             className="border-2 border-gray-200 bg-gray-50 rounded-xl py-5 px-3 w-full mb-5 text-xl font-medium text-gray-500"
           />
-          <div className="flex justify-between text-amber-400 font-medium text-xl">
+          {/* <div className="flex justify-between text-amber-400 font-medium text-xl">
             <a href="#">Forgot password</a>
             <a href="#">Forgot email</a>
-          </div>
+          </div> */}
         </div>
         <div>
           <button
@@ -94,7 +95,7 @@ export function CreateUserForm() {
           </button>
         </div>
         <div className="text-center text-green-700 font-medium text-xl">
-          <a href="#">Already have an account? Sign In</a>
+          <Link to="/signIn">Already have an account? Sign In</Link>
         </div>
       </form>
     </div>
