@@ -1,5 +1,7 @@
-import { Root } from "./Root";
-
 export function HomePage() {
-  return <Root />;
+  return (
+    <section className="bg-amber-500 p-10">
+      <h1 className="text-9xl">Wellcome to the My Car Value</h1>
+    </section>
+  );
 }
